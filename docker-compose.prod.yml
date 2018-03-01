@@ -1,0 +1,6 @@
+scholar-system:
+  build: .
+  command: echo 'ready'
+  volumes:
+    - .:/home/node/scholar-system
+    - /home/node/scholar-system/node_modules
