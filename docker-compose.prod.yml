@@ -1,6 +1,7 @@
 scholar-system:
   build: .
-  command: echo 'ready'
-  volumes:
-    - .:/home/node/scholar-system
-    - /home/node/scholar-system/node_modules
+  command: npm start
+  environment:
+    NODE_ENV: production
+  ports:
+    - '3000:3000'

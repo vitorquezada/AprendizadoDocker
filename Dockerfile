@@ -4,13 +4,12 @@ ENV HOME=/home/node
 
 ENV PROJ=$HOME/scholar-system
 
-COPY package.json $PROJ/
+WORKDIR $PROJ
 
-RUN npm install --silent --progress=false
-
+COPY package.json package-lock.json $PROJ/
+RUN npm install --silent --progress=false && npm cache verify
 COPY . $PROJ/
 
-RUN chown -R node:node $HOME/* && chown -R node:node $HOME/.config
+RUN chown -R node:node $HOME/*
 
 USER node
-WORKDIR $PROJ
