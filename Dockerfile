@@ -10,7 +10,7 @@ RUN npm install --silent --progress=false
 
 COPY . $PROJ/
 
-RUN chown -R node:node $HOME/*
+RUN chown -R node:node $HOME/* && chown -R node:node $HOME/.config
 
 USER node
 WORKDIR $PROJ
